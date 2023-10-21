@@ -107,3 +107,8 @@
     outline: none;
     background: #09d;
   }
+  .erros {
+    background-color: rgb(228, 183, 183);
+    color: #fff;
+  }
+  
