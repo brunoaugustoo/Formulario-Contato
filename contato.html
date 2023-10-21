@@ -8,6 +8,23 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <h1>Formulário de Contato</h1>
+    <form id="contact-form" data-type="contact" class="form">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" placeholder="" required>
+        <label for="e-mail">Seu e-mail</label>
+        <input id="e-mail" type="text" placeholder="" required>
+        <label for="assunto">Assunto</label>
+        <input class="kv-ee-form-control" id="assunto" type="text" placeholder="" required>
+        <label for="telefone">Seu telefone</label>
+        <input id="telefone" type="text" placeholder="" required>
+        <label for="mensagem">Sua mensagem</label>
+        <textarea id="mensagem" placeholder="" required></textarea>
+        <input type="checkbox" id="seinscrever" class="check">
+        <label for="seinscrever" class="select">
+        Ao selecionar esta caixa e enviar seus dados, você nos autoriza a enviar e-mails. Você pode cancelar a qualquer momento.
+        </label>
+        <input type="submit" value="enviar" class="button">
+    </form>
 </body>
 </html>
