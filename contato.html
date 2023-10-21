@@ -12,15 +12,15 @@
 
     <form id="contact-form" data-type="contact" class="form" action="php/send.php" method="post">
         <label for="nome">Nome</label>
-        <input id="nome" type="text" placeholder="" required>
+        <input id="nome" name="nome" type="text" placeholder="" required>
         <label for="e-mail">Seu e-mail</label>
-        <input id="e-mail" type="text" placeholder="" required>
+        <input id="e-mail" name="e-mail" type="text" placeholder="" required>
         <label for="assunto">Assunto</label>
-        <input class="kv-ee-form-control" id="assunto" type="text" placeholder="" required>
+        <input class="kv-ee-form-control" id="assunto" name="assunto" type="text" placeholder="" required>
         <label for="telefone">Seu telefone</label>
-        <input id="telefone" type="text" placeholder="" required>
+        <input id="telefone" name="telefone" type="text" placeholder="" required>
         <label for="mensagem">Sua mensagem</label>
-        <textarea id="mensagem" placeholder="" required></textarea>
+        <textarea id="mensagem" name="mensagem" placeholder="" required></textarea>
         <input type="submit" value="enviar" class="button">
     </form>
     <script src="jc/form-validation.js"></script>
