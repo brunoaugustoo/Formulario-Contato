@@ -67,7 +67,7 @@
   .form textarea:hover,
   .form textarea:focus {
     outline: none;
-    border-color: #09d;
+    border-color: #005b8d;
     box-shadow: 0 0 0 3px #4dc8ff;
   }
 
@@ -92,7 +92,7 @@
   .form .button {
     display: block;
     padding: 1rem;
-    background: #0072c4;
+    background: #004971;
     color: #fff;
     font: inherit;
     text-transform: uppercase;
@@ -105,5 +105,5 @@
   .form .button:hover,
   .form .button:focus {
     outline: none;
-    background: #09d;
+    background: #005b8d;
   }
