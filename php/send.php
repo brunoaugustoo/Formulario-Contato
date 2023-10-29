@@ -1,44 +1,30 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if($_POST){
     $nome = $_POST['nome'];
     $email = $_POST['e-mail'];
     $assunto = $_POST['assunto'];
     $telefone = $_POST['telefone'];
     $mensagem = $_POST['mensagem'];
 
-    // Preparar o e-mail
-    $headers = "MIME-Version: 1.1\r\n";
-    $headers .= "Content-type: text/plain; charset=UTF-8\r\n";
-    $headers .= "From: contato@brunoaugusto.com\r\n"; // remetente
-    $headers .= "Return-Path: contato@brunoaugusto.com\r\n"; // return-path
-
-
-    $to = 'contato@brunoaugusto.com';
-    $subject = 'Novo contato: '.$assunto;
-    $message = "Nome: ".$nome."\n".
-               "E-mail: ".$email."\n".
-               "Telefone: ".$telefone."\n".
-               "Mensagem: ".$mensagem."\n";
+    $to = 'contato@brunoaugusto.com'; // substitua pelo seu e-mail
+    $subject = 'Formulário de Contato';
+    $message = "Nome: $nome\nE-mail: $email\nTelefone: $telefone\nAssunto: $assunto\nMensagem: $mensagem";
     
-    // Enviar o e-mail
-    if(mail($to, $subject, $message, $headers)){
-        echo "E-mail enviado com sucesso.";
+    // Cabeçalhos
+    $headers = "From: Meu Nome <contato@brunoaugusto.com>\n";
+    $headers .= "Reply-To: $email\n";
+    $headers .= "Return-Path: contato@brunoaugusto.com\n";
+
+    // Enviar e-mail
+    if(mail($to, $subject, $message, $headers, "-r"."contato@brunoaugusto.com")){
+        // Enviar e-mail de confirmação para o remetente
+        $confirmSubject = 'Confirmação de recebimento de mensagem';
+        $confirmMessage = "Olá, $nome. Recebemos sua mensagem e entraremos em contato em breve.";
+        mail($email, $confirmSubject, $confirmMessage, $headers, "-r"."contato@brunoaugusto.com");
         
-        // Enviar um e-mail de confirmação para a pessoa que preencheu o formulário
-        $to = $email;
-        $subject = 'Confirmação do contato';
-        $message = "Obrigado pelo seu contato, ".$nome.". Nós recebemos sua mensagem e responderemos em breve.";
-        
-        if(mail($to, $subject, $message, $headers)){
-            echo "E-mail de confirmação enviado com sucesso.";
-        } else {
-            echo "Falha ao enviar o e-mail de confirmação.";
-        }
-        
+        echo "<script>alert('E-mail enviado com sucesso!'); location.href='../contato.html';</script>";
     } else {
-        echo "Falha ao enviar o e-mail.";
+        echo "<script>alert('Erro ao enviar e-mail. Tente novamente.'); location.href='../contato.html';</script>";
     }
-} else {
-    echo "Método de solicitação inválido.";
 }
 ?>
